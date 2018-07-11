@@ -10,5 +10,5 @@
     "jackson",
     "json"
   ],
-  "defaultSeverity": "Critical"
+  "defaultSeverity": "Major"
 }
