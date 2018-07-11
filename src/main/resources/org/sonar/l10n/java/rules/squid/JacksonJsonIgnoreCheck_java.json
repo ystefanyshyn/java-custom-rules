@@ -1,0 +1,14 @@
+{
+  "title": "Jackson JsonIgnore annotation should not be used with fields",
+  "type": "BUG",
+  "status": "ready",
+  "remediation": {
+    "func": "Constant\/Issue",
+    "constantCost": "5min"
+  },
+  "tags": [
+    "jackson",
+    "json"
+  ],
+  "defaultSeverity": "Critical"
+}

@@ -1,0 +1,14 @@
+<p>This rule detects usage of @JsonIgnore on class fields</p>
+<h2>Noncompliant Code Example</h2>
+<pre>
+    @JsonIgnore private Long member; // Noncompliant
+</pre>
+<h2>Compliant Solution</h2>
+<pre>
+    private Long member;
+
+    @JsonIgnore
+    public Long getMember() {
+        return member;
+    }
+</pre>

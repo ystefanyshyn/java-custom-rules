@@ -1,0 +1,10 @@
+version: "3"
+services:
+  sonarqube:
+    restart: always
+    image: sonarqube
+    ports:
+    - "9000:9000"
+    - "9092:9092"
+    volumes:
+      - ./sonarqube/sonarqube_extensions:/opt/sonarqube/extensions
