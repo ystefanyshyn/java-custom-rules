@@ -32,7 +32,7 @@ public class JacksonJsonIgnoreCheck extends IssuableSubscriptionVisitor {
         if (annotation.parent().parent().is(Tree.Kind.VARIABLE)) {
             IdentifierTree idf = (IdentifierTree) annotation.annotationType();
             if (idf.name().equals("JsonIgnore")) {
-                reportIssue(annotation, "LOL");
+                reportIssue(annotation, "Jackson JsonIgnore annotation should not be used with fields");
             }
         }
     }
