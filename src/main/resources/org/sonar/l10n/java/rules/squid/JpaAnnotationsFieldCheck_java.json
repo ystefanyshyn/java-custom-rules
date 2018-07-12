@@ -1,0 +1,10 @@
+{
+  "title": "Javax persistence annotations should be placed on accessors",
+  "type": "BUG",
+  "status": "ready",
+  "tags": [
+    "javax",
+    "persistence"
+  ],
+  "defaultSeverity": "Major"
+}

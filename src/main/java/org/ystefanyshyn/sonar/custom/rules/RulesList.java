@@ -22,6 +22,7 @@ package org.ystefanyshyn.sonar.custom.rules;
 import com.google.common.collect.ImmutableList;
 import org.sonar.plugins.java.api.JavaCheck;
 import org.ystefanyshyn.sonar.custom.rules.checks.JacksonJsonIgnoreCheck;
+import org.ystefanyshyn.sonar.custom.rules.checks.JpaAnnotationsFieldCheck;
 
 import java.util.List;
 
@@ -37,6 +38,7 @@ public final class RulesList {
     public static List<Class<? extends JavaCheck>> getJavaChecks() {
         return ImmutableList.<Class<? extends JavaCheck>>builder()
                 .add(JacksonJsonIgnoreCheck.class)
+                .add(JpaAnnotationsFieldCheck.class)
                 .build();
     }
 

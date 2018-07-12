@@ -11,12 +11,12 @@ import org.sonar.plugins.java.api.tree.Tree;
 import java.util.List;
 
 @Rule(
-        key = "JacksonJsonIgnoreCheck",
-        name = "Jackson JsonIgnore annotation should not be used with fields",
-        description = "Jackson JsonIgnore annotation should not be used with fields",
+        key = "JpaAnnotationsFieldCheck",
+        name = "Javax persistence annotations should be placed on accessors",
+        description = "Javax persistence annotations should be placed on accessors",
         priority = Priority.MAJOR,
         tags = {"bug"})
-public class JacksonJsonIgnoreCheck extends IssuableSubscriptionVisitor {
+public class JpaAnnotationsFieldCheck extends IssuableSubscriptionVisitor {
 
     @Override
     public List<Tree.Kind> nodesToVisit() {
@@ -29,10 +29,12 @@ public class JacksonJsonIgnoreCheck extends IssuableSubscriptionVisitor {
             return;
         }
         AnnotationTree annotation = (AnnotationTree) tree;
+
         if (annotation.parent().parent().is(Tree.Kind.VARIABLE)) {
             IdentifierTree idf = (IdentifierTree) annotation.annotationType();
-            if ("JsonIgnore".equals(idf.name())) {
-                reportIssue(annotation, "Jackson JsonIgnore annotation should not be used with fields");
+
+            if (idf.symbol().owner().name().contains("javax.persistence")) {
+                reportIssue(annotation, "Javax persistence annotations should be placed on accessors");
             }
         }
     }
